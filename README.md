@@ -1,11 +1,11 @@
-# WordPress 5.4.1 cn deploy on heroku
+# 指南 WordPress 5.4.1 cn deploy on heroku
 ## 安装 Installation
 
 Clone the repository from Github
 
-克隆下来，有点大，早点用代理或者服务器远程
+fork一下，克隆下来，有点大，早点用代理或者服务器远程
 
-    $ git clone git://github.com/movny/heroku-wp5.4.1cn.git
+    $ git clone git://github.com/****/heroku-wp5.4.1cn.git
 
 With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), create your app
 
@@ -50,6 +50,8 @@ Add the ability to send email (i.e. Password Resets etc)
     Use `heroku addons:docs sendgrid` to view documentation.
 
 Create a new branch for any configuration/setup changes needed
+
+创建生产分支，用于部署
 
     $ git checkout -b production
 
