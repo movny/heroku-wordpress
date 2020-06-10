@@ -1,16 +1,9 @@
 # WordPress Heroku
-
-This project is a template for installing and running [WordPress](http://wordpress.org/) on [Heroku](http://www.heroku.com/). The repository comes bundled with:
-* [PostgreSQL for WordPress](http://wordpress.org/extend/plugins/postgresql-for-wordpress/)
-* [Amazon S3 and Cloudfront](https://wordpress.org/plugins/amazon-s3-and-cloudfront/)
-* [WP Sendgrid](https://wordpress.org/plugins/wp-sendgrid/)
-* [Wordpress HTTPS](https://wordpress.org/plugins/wordpress-https/)
-
 ## Installation
 
 Clone the repository from Github
 
-    $ git clone git://github.com/php4dev/heroku-wordpress.git
+    $ git clone git://github.com/movny/heroku-wp5.4.1cn.git
 
 With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), create your app
 
@@ -32,6 +25,7 @@ Add a database to your app
     Use `heroku addons:docs heroku-postgresql` to view documentation.
 
 Promote the database (replace HEROKU_POSTGRESQL_INSTANCE with the name from the above output)
+说白了就是添加环境变量`HEROKU_POSTGRESQL_INSTANCE`，值和`DATABASE_URL`一样
 
     $ heroku pg:promote HEROKU_POSTGRESQL_INSTANCE
     Promoting HEROKU_POSTGRESQL_INSTANCE to DATABASE_URL... done
@@ -39,6 +33,7 @@ Promote the database (replace HEROKU_POSTGRESQL_INSTANCE with the name from the 
     Promoting HEROKU_POSTGRESQL_INSTANCE to DATABASE_URL on strange-bird-1234... done
 
 Add the ability to send email (i.e. Password Resets etc)
+这个没必要，需要验证电话号，还是国外的
 
     $ heroku addons:create sendgrid:starter
     Creating SENDGRID_INSTANCE... done, (free)
@@ -51,6 +46,7 @@ Create a new branch for any configuration/setup changes needed
     $ git checkout -b production
 
 Store unique keys and salts in Heroku environment variables. Wordpress can provide random values [here](https://api.wordpress.org/secret-key/1.1/salt/).
+获取一下，填进去，也是环境变量
 
     heroku config:set AUTH_KEY='put your unique phrase here' \
       SECURE_AUTH_KEY='put your unique phrase here' \
