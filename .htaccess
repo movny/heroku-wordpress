@@ -10,3 +10,6 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+php_value upload_max_filesize 300M
+php_value post_max_size 300M
