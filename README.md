@@ -1,11 +1,15 @@
-# WordPress Heroku
-## Installation
+# WordPress 5.4.1 cn deploy on heroku
+## 安装 Installation
 
 Clone the repository from Github
+
+克隆下来，有点大，早点用代理或者服务器远程
 
     $ git clone git://github.com/movny/heroku-wp5.4.1cn.git
 
 With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), create your app
+
+用命令行来操作，创建一个
 
     $ cd heroku-wordpress
     $ heroku create
@@ -14,6 +18,8 @@ With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), crea
     Git remote heroku added
 
 Add a database to your app
+
+添加数据库
 
     $ heroku addons:create heroku-postgresql
     Creating HEROKU_POSTGRESQL_INSTANCE... done, (free)
@@ -25,6 +31,7 @@ Add a database to your app
     Use `heroku addons:docs heroku-postgresql` to view documentation.
 
 Promote the database (replace HEROKU_POSTGRESQL_INSTANCE with the name from the above output)
+
 说白了就是添加环境变量`HEROKU_POSTGRESQL_INSTANCE`，值和`DATABASE_URL`一样
 
     $ heroku pg:promote HEROKU_POSTGRESQL_INSTANCE
@@ -33,6 +40,7 @@ Promote the database (replace HEROKU_POSTGRESQL_INSTANCE with the name from the 
     Promoting HEROKU_POSTGRESQL_INSTANCE to DATABASE_URL on strange-bird-1234... done
 
 Add the ability to send email (i.e. Password Resets etc)
+
 这个没必要，需要验证电话号，还是国外的
 
     $ heroku addons:create sendgrid:starter
@@ -46,6 +54,7 @@ Create a new branch for any configuration/setup changes needed
     $ git checkout -b production
 
 Store unique keys and salts in Heroku environment variables. Wordpress can provide random values [here](https://api.wordpress.org/secret-key/1.1/salt/).
+
 获取一下，填进去，也是环境变量
 
     heroku config:set AUTH_KEY='put your unique phrase here' \
@@ -58,6 +67,8 @@ Store unique keys and salts in Heroku environment variables. Wordpress can provi
       NONCE_SALT='put your unique phrase here'
 
 Deploy to Heroku
+
+部署
 
     $ git push heroku production:master
     -----> Deleting 0 files matching .slugignore patterns.
