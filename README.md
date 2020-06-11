@@ -13,13 +13,13 @@ Clone the repository from Github
 
 fork一下，克隆下来，有点大，早点用代理或者服务器远程
 
-    $ git clone git://github.com/****/heroku-wp5.4.1cn.git
+    $ git clone git://github.com/****/heroku-wp5.4.1-cn.git
 
 With the [Heroku gem](http://devcenter.heroku.com/articles/heroku-command), create your app
 
 用命令行来操作，创建一个
 
-    $ cd heroku-wordpress
+    $ cd heroku-wp5.4.1-cn
     $ heroku create
     Creating strange-bird-1234... done, stack is cedar
     http://strange-bird-1234.herokuapp.com/ | git@heroku.com:strange-bird-1234.git
