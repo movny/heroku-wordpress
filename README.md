@@ -1,4 +1,12 @@
 # 指南 WordPress 5.4.1 cn deploy on heroku
+## 前提说明
+heroku目录权限有问题，无法写入信息，提前在本地设置好，把`/www/wwwroot/网站目录`下的插件和主题设置好，启用了，覆盖回`/root/项目目录`再上传
+- aliyun-oss版本过老，图片引擎会有问题，修复：
+- 进入`/root/-wp5.4.1-cn/wp-content/plugins/aliyun-oss/src`，把`Config.php`65行@去掉
+```diff
+- self::$customSeparator = "@{$options['custom_separator']}";
++ self::$customSeparator = "{$options['custom_separator']}";
+```
 ## 安装 Installation
 
 Clone the repository from Github
